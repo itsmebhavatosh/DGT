@@ -1,30 +1,58 @@
-   self.home = QtWidgets.QPushButton(self.top_menubar)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.home.sizePolicy().hasHeightForWidth())
-        self.home.setSizePolicy(sizePolicy)
-        self.home.setMinimumSize(QtCore.QSize(60, 0))
-        self.home.setMaximumSize(QtCore.QSize(100, 16777215))
-        font = QtGui.QFont()
-        font.setPointSize(18)
-        font.setBold(True)
-        font.setWeight(75)
-        self.home.setFont(font)
-        self.home.setStyleSheet("QPushButton#home{\n"
-"background-color: rgb(2, 47, 88);\n"
-"color: rgb(169, 169, 169);\n"
-"}\n"
-"\n"
-"QPushButton#home:pressed{\n"
-"background-color: rgb(143, 143, 143);\n"
-"\n"
-"\n"
-"}\n"
-"QPushButton#home:hover{\n"
-"background-color: rgb(63, 126, 167);\n"
-"color: rgb(255, 255, 255);\n"
-"}\n"
-"")
-        self.home.setObjectName("home")
-        self.hor_cv_pd_pe.addWidget(self.home)
+
+        self.CV_C_M_4_W26 = QtWidgets.QWidget(self.CV_C_M_4)
+        self.CV_C_M_4_W26.setObjectName("CV_C_M_4_W26")
+        self.CV_C_M_4_W26_gl = QtWidgets.QGridLayout(self.CV_C_M_4_W26)
+        self.CV_C_M_4_W26_gl.setObjectName("CV_C_M_4_W26_gl")
+        self.CV_C_M_4_W26_w3 = QtWidgets.QFrame(self.CV_C_M_4_W26)
+        self.CV_C_M_4_W26_w3.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.CV_C_M_4_W26_w3.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.CV_C_M_4_W26_w3.setObjectName("CV_C_M_4_W26_w3")
+        self.CV_C_M_4_W26_w3_gl = QtWidgets.QGridLayout(self.CV_C_M_4_W26_w3)
+        self.CV_C_M_4_W26_w3_gl.setObjectName("CV_C_M_4_W26_w3_gl")
+        self.CV_C_M_4_W26_b5 = QtWidgets.QRadioButton(self.CV_C_M_4_W26_w3)
+        self.CV_C_M_4_W26_b5.setObjectName("CV_C_M_4_W26_b5")
+        self.CV_C_M_4_W26_w3_gl.addWidget(self.CV_C_M_4_W26_b5, 0, 0, 1, 1)
+        self.CV_C_M_4_W26_b6 = QtWidgets.QRadioButton(self.CV_C_M_4_W26_w3)
+        self.CV_C_M_4_W26_b6.setObjectName("CV_C_M_4_W26_b6")
+        self.CV_C_M_4_W26_w3_gl.addWidget(self.CV_C_M_4_W26_b6, 0, 1, 1, 1)
+        self.CV_C_M_4_W26_gl.addWidget(self.CV_C_M_4_W26_w3, 3, 2, 1, 1)
+        self.CV_C_M_4_W26_w2 = QtWidgets.QFrame(self.CV_C_M_4_W26)
+        self.CV_C_M_4_W26_w2.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.CV_C_M_4_W26_w2.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.CV_C_M_4_W26_w2.setObjectName("CV_C_M_4_W26_w2")
+        self.CV_C_M_4_W26_w1_gl_2 = QtWidgets.QGridLayout(self.CV_C_M_4_W26_w2)
+        self.CV_C_M_4_W26_w1_gl_2.setObjectName("CV_C_M_4_W26_w1_gl_2")
+        self.CV_C_M_4_W26_b3 = QtWidgets.QRadioButton(self.CV_C_M_4_W26_w2)
+        self.CV_C_M_4_W26_b3.setObjectName("CV_C_M_4_W26_b3")
+        self.CV_C_M_4_W26_w1_gl_2.addWidget(self.CV_C_M_4_W26_b3, 0, 0, 1, 1)
+        self.CV_C_M_4_W26_b4 = QtWidgets.QRadioButton(self.CV_C_M_4_W26_w2)
+        self.CV_C_M_4_W26_b4.setObjectName("CV_C_M_4_W26_b4")
+        self.CV_C_M_4_W26_w1_gl_2.addWidget(self.CV_C_M_4_W26_b4, 0, 1, 1, 1)
+        self.CV_C_M_4_W26_gl.addWidget(self.CV_C_M_4_W26_w2, 2, 2, 1, 1)
+        self.CV_C_M_4_W26_w1 = QtWidgets.QFrame(self.CV_C_M_4_W26)
+        self.CV_C_M_4_W26_w1.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.CV_C_M_4_W26_w1.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.CV_C_M_4_W26_w1.setObjectName("CV_C_M_4_W26_w1")
+        self.CV_C_M_4_W26_w1_gl = QtWidgets.QGridLayout(self.CV_C_M_4_W26_w1)
+        self.CV_C_M_4_W26_w1_gl.setObjectName("CV_C_M_4_W26_w1_gl")
+        self.CV_C_M_4_W26_b1 = QtWidgets.QRadioButton(self.CV_C_M_4_W26_w1)
+        self.CV_C_M_4_W26_b1.setObjectName("CV_C_M_4_W26_b1")
+        self.CV_C_M_4_W26_w1_gl.addWidget(self.CV_C_M_4_W26_b1, 0, 0, 1, 1)
+        self.CV_C_M_4_W26_b2 = QtWidgets.QRadioButton(self.CV_C_M_4_W26_w1)
+        self.CV_C_M_4_W26_b2.setObjectName("CV_C_M_4_W26_b2")
+        self.CV_C_M_4_W26_w1_gl.addWidget(self.CV_C_M_4_W26_b2, 0, 1, 1, 1)
+        self.CV_C_M_4_W26_gl.addWidget(self.CV_C_M_4_W26_w1, 1, 2, 1, 1)
+        self.CV_C_M_4_W26_l1 = QtWidgets.QLabel(self.CV_C_M_4_W26)
+        self.CV_C_M_4_W26_l1.setObjectName("CV_C_M_4_W26_l1")
+        self.CV_C_M_4_W26_gl.addWidget(self.CV_C_M_4_W26_l1, 0, 0, 1, 1)
+        self.CV_C_M_4_W26_l2 = QtWidgets.QLabel(self.CV_C_M_4_W26)
+        self.CV_C_M_4_W26_l2.setObjectName("CV_C_M_4_W26_l2")
+        self.CV_C_M_4_W26_gl.addWidget(self.CV_C_M_4_W26_l2, 1, 1, 1, 1)
+        self.CV_C_M_4_W26_l3 = QtWidgets.QLabel(self.CV_C_M_4_W26)
+        self.CV_C_M_4_W26_l3.setObjectName("CV_C_M_4_W26_l3")
+        self.CV_C_M_4_W26_gl.addWidget(self.CV_C_M_4_W26_l3, 2, 1, 1, 1)
+        self.CV_C_M_4_W26_l4 = QtWidgets.QLabel(self.CV_C_M_4_W26)
+        self.CV_C_M_4_W26_l4.setObjectName("CV_C_M_4_W26_l4")
+        self.CV_C_M_4_W26_gl.addWidget(self.CV_C_M_4_W26_l4, 3, 1, 1, 1)
+        
+        self.CV_C_M_4_GL2.addWidget(self.CV_C_M_4_W26, 6, 0, 1, 1)
