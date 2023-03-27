@@ -217,8 +217,11 @@ class MainWindow(QMainWindow):
         self.ui.CV_C_XF_TEAM_CB.setCurrentIndex(-1);
         self.ui.CV_C_XF_TEAM_CB.setCurrentText("");
         #self.ui.CV_C_M_1_W.setStyleSheet("margin:3px; border:1px solid rgb(0, 0, 0); ")CV_C_M_1
-        self.ui.CV_C_M_1.setFrameStyle(QFrame.StyledPanel | QFrame.Plain)
-        self.ui.CV_C_M_1.setLineWidth(3)
+    def setFrame(self):
+        frame_lst=[self.ui.CV_C_M_1,self.ui.CV_C_M_2,self.ui.CV_C_M_3,self.ui.CV_C_M_4]
+        for frame in frame_lst:
+            frame.setFrameStyle(QFrame.StyledPanel | QFrame.Plain)
+            frame.setLineWidth(0)
 
     def autofill(self):
         lst1=[['Parag Joshi','gna@discover.com','Swati Singh'],['Kunal Patil','gna_web@discover.com','Swati Singh'],['TEST','TEST','TEST']]
@@ -244,6 +247,7 @@ class MainWindow(QMainWindow):
         self.ui.CV_C_XF_TEAM_CB.activated[str].connect(self.autofill)
         print(self.ui.CV_C_M_1_W2_LE15.size())
         self.lineEditResize()
+        self.setFrame()
         # self.ui.CV_C_XF_AUTOFILL.clicked.connect(self.autofill)
         # self.ui.CV_C_XF_AUTOFILL.setToolTip('Autofill Team Details')
 
