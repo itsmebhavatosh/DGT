@@ -191,19 +191,8 @@ class MainWindow(QMainWindow):
             self.data_insert(mand_text,mand_button,mand_date,extra_fields,radio_buttons)
 
     def test(self,rb):
-        if rb==1:
-            self.ui.CV_C_DC_STACK.setCurrentWidget(self.ui.CV_C_DC_EXIST_PG)
-            self.ui.CV_C_DC_STACK.setMaximumSize(QtCore.QSize(16777215, 200))
-
-    def test1(self):
-
-        self.ui.CV_C_DC_STACK.setCurrentWidget(self.ui.CV_C_DC_NEW_PG)
+        self.ui.CV_C_DC_STACK.setCurrentWidget(rb)
         self.ui.CV_C_DC_STACK.setMaximumSize(QtCore.QSize(16777215, 200))
-
-    def test2(self):
-
-        self.ui.CV_C_DC_STACK.setCurrentWidget(self.ui.CV_C_DC_BOTH_PG)
-        self.ui.CV_C_DC_STACK.setMaximumSize(QtCore.QSize(16777215, 500))
     def test5(self):
         print(2)
 
@@ -249,9 +238,9 @@ class MainWindow(QMainWindow):
         self.ui.CV_C_SUBMIT_B.clicked.connect(self.take_input)
         self.ui.CV_C_DC_STACK.setCurrentWidget(self.ui.CV_C_DC_NULL_PG)
         self.ui.CV_C_DC_STACK.setMaximumSize(QtCore.QSize(0, 0))
-        self.ui.CV_C_M_4_W18_RB21.clicked.connect(lambda: self.test(1))
-        self.ui.CV_C_M_4_W18_RB27.clicked.connect(self.test1)
-        self.ui.CV_C_M_4_W18_RB33.clicked.connect(self.test2)
+        self.ui.CV_C_M_4_W18_RB21.clicked.connect(lambda: self.test(self.ui.CV_C_DC_EXIST_PG))
+        self.ui.CV_C_M_4_W18_RB27.clicked.connect(lambda: self.test(self.ui.CV_C_DC_NEW_PG))
+        self.ui.CV_C_M_4_W18_RB33.clicked.connect(lambda: self.test(self.ui.CV_C_DC_BOTH_PG))
         self.ui.CV_C_XF_TEAM_CB.activated[str].connect(self.autofill)
         print(self.ui.CV_C_M_1_W2_LE15.size())
         self.lineEditResize()
