@@ -18,21 +18,34 @@ class MainWindow(QMainWindow):
         mandatory.setWindowTitle("Alert")
         mandatory.setText("Please Fill The Mandatory Fields")
         mandatory.exec_()
+    def data_clear(self,radio_buttons):
 
-    def data_insert(self,text,button,date,extra_fields):
+        for button in radio_buttons:
+            button[1].setAutoExclusive(False)
+            button[1].setChecked(False)
+            button[1].setAutoExclusive(True)
+            button[2].setAutoExclusive(False)
+            button[2].setChecked(False)
+            button[2].setAutoExclusive(True)
+
+
+
+
+    def data_insert(self,text,button,date,extra_fields,radio_buttons):
         gna_cv_id=str(self.ui.CV_C_M_1_W5_LE4.text())
         gna_id=int(gna_cv_id[-4:])
         insert_lst_1=text+date+button+extra_fields
         Update_Date= "CURRENT_TIMESTAMP"
         delete_flg='N'
         user_id='vpanic1'
-        print(1)
+        print(date)
         insert_lst_1.append(Update_Date)
         insert_lst_1.append(delete_flg)
         insert_lst_1.append(user_id)
         insert_lst_final=[gna_id,gna_cv_id]
         insert_lst_final.extend(insert_lst_1)
         print(insert_lst_final)
+        self.data_clear(radio_buttons)
 
 
 
@@ -121,7 +134,7 @@ class MainWindow(QMainWindow):
 
     def take_input(self):
         text_fields = [
-                       [self.ui.CV_C_M_1_W5_LE6, self.ui.CV_C_M_1_W5_L3, 1],
+                       #[self.ui.CV_C_M_1_W5_LE6, self.ui.CV_C_M_1_W5_L3, 1],
                        [self.ui.CV_C_M_1_W5_LE7, self.ui.CV_C_M_1_W5_L4, 1],
                        [self.ui.CV_C_M_1_W5_LE9, self.ui.CV_C_M_1_W5_L6, 0],
                        [self.ui.CV_C_M_1_W4_LE5, self.ui.CV_C_M_1_W4_L2, 0],
@@ -134,20 +147,13 @@ class MainWindow(QMainWindow):
 
         date_fields=[[self.ui.CV_C_M_1_W5_LE8, self.ui.CV_C_M_1_W5_L5, 1],
                      [self.ui.CV_C_M_1_W4_LE12, self.ui.CV_C_M_1_W4_L9, 0],
-                     [self.ui.CV_C_M_1_W4_LE13, self.ui.CV_C_M_1_W4_L1, 0],
-                     ]
+                     [self.ui.CV_C_M_1_W4_LE13, self.ui.CV_C_M_1_W4_L1, 0],]
 
-        radio_buttons = [[self.ui.CV_C_M_1_W2_L16, self.ui.CV_C_M_1_W2_RB2, self.ui.CV_C_M_1_W2_RB, 0],
-                         [self.ui.CV_C_M_2_W6_L17, self.ui.CV_C_M_2_W7_RB4, self.ui.CV_C_M_2_W7_RB3, 0],
+        radio_buttons = [[self.ui.CV_C_M_2_W6_L17, self.ui.CV_C_M_2_W7_RB4, self.ui.CV_C_M_2_W7_RB3, 0],
                          [self.ui.CV_C_M_2_W6_L18, self.ui.CV_C_M_2_W8_RB5, self.ui.CV_C_M_2_W8_RB6, 0],
                          [self.ui.CV_C_M_2_W6_L19, self.ui.CV_C_M_2_W9_RB7, self.ui.CV_C_M_2_W9_RB8, 0],
                          [self.ui.CV_C_M_2_W6_L20, self.ui.CV_C_M_2_W10_RB9, self.ui.CV_C_M_2_W10_RB10, 0],
-                         [self.ui.CV_C_M_3_W11_L22, self.ui.CV_C_M_3_W12_RB11, self.ui.CV_C_M_3_W12_RB12, 0],
-                         [self.ui.CV_C_M_3_W11_L23, self.ui.CV_C_M_3_W13_RB13, self.ui.CV_C_M_3_W13_RB14, 0],
-                         [self.ui.CV_C_M_3_W11_L24, self.ui.CV_C_M_3_W14_RB15, self.ui.CV_C_M_3_W14_RB16, 0],
-                         [self.ui.CV_C_M_4_W15_L28, self.ui.CV_C_M_4_W18_RB17, self.ui.CV_C_M_4_W18_RB18, 0],
-                         [self.ui.CV_C_M_4_W15_L27, self.ui.CV_C_M_4_W18_RB19, self.ui.CV_C_M_4_W18_RB20, 0],
-                         [self.ui.CV_C_M_4_W15_L30, self.ui.CV_C_M_4_W18_RB22, self.ui.CV_C_M_4_W18_RB28, 0],
+                        #[self.ui.CV_C_M_4_W15_L30, self.ui.CV_C_M_4_W18_RB22, self.ui.CV_C_M_4_W18_RB28, 0],
                          [self.ui.CV_C_M_4_W15_L32, self.ui.CV_C_M_4_W18_RB23, self.ui.CV_C_M_4_W18_RB29, 0],
                          [self.ui.CV_C_M_4_W15_L33, self.ui.CV_C_M_4_W18_RB24, self.ui.CV_C_M_4_W18_RB30, 0],
                          [self.ui.CV_C_M_4_W15_L34, self.ui.CV_C_M_4_W18_RB25, self.ui.CV_C_M_4_W18_RB31, 0],
@@ -182,8 +188,57 @@ class MainWindow(QMainWindow):
         if mand_text == 1 or mand_button == 1 or mand_date==1:
             self.mandatory_pop()
         else:
-            self.data_insert(mand_text,mand_button,mand_date,extra_fields)
+            self.data_insert(mand_text,mand_button,mand_date,extra_fields,radio_buttons)
 
+    def test(self,rb):
+        if rb==1:
+            self.ui.CV_C_DC_STACK.setCurrentWidget(self.ui.CV_C_DC_EXIST_PG)
+            self.ui.CV_C_DC_STACK.setMaximumSize(QtCore.QSize(16777215, 200))
+
+    def test1(self):
+
+        self.ui.CV_C_DC_STACK.setCurrentWidget(self.ui.CV_C_DC_NEW_PG)
+        self.ui.CV_C_DC_STACK.setMaximumSize(QtCore.QSize(16777215, 200))
+
+    def test2(self):
+
+        self.ui.CV_C_DC_STACK.setCurrentWidget(self.ui.CV_C_DC_BOTH_PG)
+        self.ui.CV_C_DC_STACK.setMaximumSize(QtCore.QSize(16777215, 500))
+    def test5(self):
+        print(2)
+
+
+    def lineEditResize(self):
+        LE_list=[self.ui.CV_C_M_1_W5_LE4,
+                self.ui.CV_C_M_1_W5_LE7,
+                self.ui.CV_C_M_1_W5_LE9,
+                self.ui.CV_C_M_1_W4_LE5,
+                self.ui.CV_C_M_1_W4_LE10,
+                self.ui.CV_C_M_1_W4_LE11,
+                self.ui.CV_C_M_1_W2_LE14,
+                self.ui.CV_C_M_1_W2_LE16,
+                self.ui.CV_C_M_1_W2_LE15,
+                self.ui.CV_C_M_1_W2_LE17]
+
+        for lineEdit in LE_list:
+            lineEdit.setMinimumSize(16777215,40)
+        self.ui.CV_C_XF_TEAM_CB.setMinimumSize(500, 40)
+        lst2=['Global Network Analytics','Global Network Analytics WEB','Enterprise Data Governance']
+        self.ui.CV_C_XF_TEAM_CB.addItems(lst2)
+        self.ui.CV_C_XF_TEAM_CB.setCurrentIndex(-1);
+        self.ui.CV_C_XF_TEAM_CB.setCurrentText("");
+        #self.ui.CV_C_M_1_W.setStyleSheet("margin:3px; border:1px solid rgb(0, 0, 0); ")CV_C_M_1
+        self.ui.CV_C_M_1.setFrameStyle(QFrame.StyledPanel | QFrame.Plain)
+        self.ui.CV_C_M_1.setLineWidth(3)
+
+    def autofill(self):
+        lst1=[['Parag Joshi','gna@discover.com','Swati Singh'],['Kunal Patil','gna_web@discover.com','Swati Singh'],['TEST','TEST','TEST']]
+        lst2=['Global Network Analytics','Global Network Analytics WEB','Enterprise Data Governance']
+        self.ui.CV_C_M_1_W4_LE10.setText(lst1[self.ui.CV_C_XF_TEAM_CB.currentIndex()][0])
+        self.ui.CV_C_M_1_W5_LE7.setText(lst1[self.ui.CV_C_XF_TEAM_CB.currentIndex()][1])
+        self.ui.CV_C_M_1_W4_LE11.setText(lst1[self.ui.CV_C_XF_TEAM_CB.currentIndex()][2])
+
+        print(self.ui.CV_C_XF_TEAM_CB.currentData())
 
     def __init__(self):
         QMainWindow.__init__(self)
@@ -192,8 +247,18 @@ class MainWindow(QMainWindow):
         self.set_gnaCV_id()
         self.set_date([self.ui.CV_C_M_1_W4_LE12, self.ui.CV_C_M_1_W4_LE13,self.ui.CV_C_M_1_W5_LE8])
         self.ui.CV_C_SUBMIT_B.clicked.connect(self.take_input)
+        self.ui.CV_C_DC_STACK.setCurrentWidget(self.ui.CV_C_DC_NULL_PG)
+        self.ui.CV_C_DC_STACK.setMaximumSize(QtCore.QSize(0, 0))
+        self.ui.CV_C_M_4_W18_RB21.clicked.connect(lambda: self.test(1))
+        self.ui.CV_C_M_4_W18_RB27.clicked.connect(self.test1)
+        self.ui.CV_C_M_4_W18_RB33.clicked.connect(self.test2)
+        self.ui.CV_C_XF_TEAM_CB.activated[str].connect(self.autofill)
+        print(self.ui.CV_C_M_1_W2_LE15.size())
+        self.lineEditResize()
+        # self.ui.CV_C_XF_AUTOFILL.clicked.connect(self.autofill)
+        # self.ui.CV_C_XF_AUTOFILL.setToolTip('Autofill Team Details')
 
-        self.show()
+        self.showMaximized()
 
 
 if __name__ == "__main__":
