@@ -207,7 +207,10 @@ class MainWindow(QMainWindow):
                 self.ui.CV_C_M_1_W2_LE14,
                 self.ui.CV_C_M_1_W2_LE16,
                 self.ui.CV_C_M_1_W2_LE15,
-                self.ui.CV_C_M_1_W2_LE17]
+                self.ui.CV_C_M_1_W2_LE17,
+                 self.ui.CV_C_M_1_W4_LE13,
+                 self.ui.CV_C_M_1_W4_LE12,
+                 self.ui.CV_C_M_1_W5_LE8]
 
         for lineEdit in LE_list:
             lineEdit.setMinimumSize(16777215,40)
