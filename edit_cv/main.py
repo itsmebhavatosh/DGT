@@ -59,6 +59,8 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.showMaximized()
+        self.ui.CV_E_DC_STACK.setCurrentWidget(self.ui.CV_E_DC_NULL_PG)
+        self.ui.CV_E_DC_STACK.setMaximumSize(QtCore.QSize(0, 0))
         self.setlineEdit()
         self.ui.CV_E_M_4_W18_RB21.clicked.connect(lambda: self.test(self.ui.CV_E_DC_EXIST_PG))
         self.ui.CV_E_M_4_W18_RB27.clicked.connect(lambda: self.test(self.ui.CV_E_DC_NEW_PG))
