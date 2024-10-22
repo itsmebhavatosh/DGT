@@ -1,1 +1,60 @@
 
+Sure! Here’s the dictionary with all the keys renamed to "report" followed by a unique number to keep them distinct:
+
+```python
+my_dict = {
+    "report1": 10,
+    "report2": 20,
+    "report3": 30,
+    "report4": 40,
+    "report5": 50,
+    "report6": 60,
+    "report7": 70,
+    "report8": 80,
+    "report9": 90,
+    "report10": 100,
+    "report11": 110,
+    "report12": 120,
+    "report13": 130,
+    "report14": 140,
+    "report15": 150,
+    "report16": 160
+}
+```
+
+Let me know if you need any other changes!
+
+from datetime import datetime, timedelta
+import calendar
+
+# Get the current date
+today = datetime.now()
+
+# Calculate the first day of the current month
+first_day_of_current_month = today.replace(day=1)
+
+# Get the last day of the previous month
+last_day_of_previous_month = first_day_of_current_month - timedelta(days=1)
+
+# Get the first day of the previous month
+first_day_of_previous_month = last_day_of_previous_month.replace(day=1)
+
+# Format the dates as 'DD/MM/YYYY'
+formatted_first_date = first_day_of_previous_month.strftime('%d/%m/%Y')
+formatted_last_date = last_day_of_previous_month.strftime('%d/%m/%Y')
+
+# Print the dates separated by a hyphen
+print(f"First and Last Dates: {formatted_first_date} - {formatted_last_date}")
+
+# Format the last date of the previous month as 'yyyymm' and add six zeros in front
+formatted_date = '000000' + last_day_of_previous_month.strftime('%Y%m')
+
+# Print the formatted date with zeros
+print(f"Formatted Date with Zeros: {formatted_date}")
+
+# Get the month and year for the previous month
+previous_month_name = calendar.month_name[last_day_of_previous_month.month]
+previous_year = last_day_of_previous_month.year
+
+# Print the complete previous month and year
+print(f"Previous Month and Year: {previous_month_name} {previous_year}")
