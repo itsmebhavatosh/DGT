@@ -52,6 +52,41 @@ formatted_date = '000000' + last_day_of_previous_month.strftime('%Y%m')
 # Print the formatted date with zeros
 print(f"Formatted Date with Zeros: {formatted_date}")
 
+
+
+import openpyxl
+import glob
+
+# Specify the path to your Excel files
+file_path_pattern = 'path/to/excel/files/*.xlsx'  # Adjust the path as necessary
+
+# Initialize an empty list to store the values
+values = []
+
+# Iterate over all Excel files in the specified directory
+for file_path in glob.glob(file_path_pattern):
+    # Load the workbook
+    workbook = openpyxl.load_workbook(file_path)
+    
+    # Select a specific sheet by name (replace 'Sheet1' with your sheet name)
+    sheet_name = 'Sheet1'  # Change this to your sheet name
+    sheet = workbook[sheet_name]
+    
+    # Read the value from cell G7
+    cell_value = sheet['G7'].value
+    
+    # Append the value to the list
+    values.append(cell_value)
+
+# Limit to the first 16 values, if more than 16 files exist
+limited_values = values[:16]
+
+# Print all values in a single output
+print("Values from cell G7 of the selected Excel files:")
+for value in limited_values:
+    print(value)
+
+
 # Get the month and year for the previous month
 previous_month_name = calendar.month_name[last_day_of_previous_month.month]
 previous_year = last_day_of_previous_month.year
